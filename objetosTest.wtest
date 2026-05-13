@@ -1,0 +1,18 @@
+import objetos.*
+describe "Patear pelota" {
+
+	method initialize() {
+		game.width(15)
+		game.height(10)
+
+		lionel.position(game.at(3,5))
+		pelota.position(game.at(3,5))
+	}
+
+	test "Lionel patea la pelota" {
+
+		lionel.patear()
+
+		assert.equals(game.at(6,5), pelota.position())
+	}
+}

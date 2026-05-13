@@ -14,8 +14,16 @@ object lionel {
 	method avanzar() {
 		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
 	}
+	method patear() {
+	  self.validarPelota(pelota)
+	  pelota.moverse()
+	}
+	method validarPelota(obj) {
+		if (!self.mismaPosicion(obj)){
+			self.error("No hay pelota para patear")
+		}
+	}
 	
-
 	/*
 - **Taquito**: Hacer Lionel de un pase atrás al apretar la tecla *t*: La pelota 
 se mueve 2 posiciones a la izquierda. (o lo máximo que se pueda mover)
@@ -93,6 +101,15 @@ object pelota {
 	}
 	method bajar(){
 		position = game.at(position.x(), position.y() - 1)
+	}
+	method moverse() {
+		position = game.at(
+			(game.width() - 1).min(position.x() + 3),
+			position.y()
+		)
+	}
+	method esPateable() {
+	  return true
 	}
 }
 
