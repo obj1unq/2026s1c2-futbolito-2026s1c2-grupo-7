@@ -1,0 +1,7 @@
+import objetos.*
+describe"Futbolito"{
+    test "Levantar la pelota"{
+        lionel.posicion(game.at(4,5))
+        assert.throwsException({lionel.levantarla()})
+    }
+}
