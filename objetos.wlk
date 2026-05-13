@@ -52,6 +52,29 @@ se mueve 2 posiciones a la izquierda. (o lo máximo que se pueda mover)
   method esTitular() {
 	return imagenActual == "lionel-titular.png"
 }
+method posicion(_position){
+		position = _position
+	}
+
+method levantarla(){
+		self.validarPosicion(pelota)
+		self.levantar(pelota)
+	}
+	method levantar(objeto){
+		objeto.moverArriba()
+		self.caidaLibre()
+	}
+	// method validarPosicion(objeto){
+	// 	if (not self.mismaPosicion(objeto)){
+	// 		self.error("no se puede levantar el " + objeto + " ya que esta en la misma posicion que lionel")
+	// 	}
+	// }
+	method mismaPosicion(objeto){
+		return self.position() == objeto.position()
+	}
+	method caidaLibre(){
+			game.schedule(2000, {pelota.bajar()} )
+	}
 }
 
 object pelota {
@@ -61,6 +84,16 @@ object pelota {
 	  self.position(game.at(0.max(self.position().x() - 2), self.position().y()))
 	}
 	method nombre(){return "la pelota"}
+	
+	method moverArriba(){
+		position = game.at(position.x(), position.y() + 1)
+	}
+	method posicion(_position){
+		position = _position
+	}
+	method bajar(){
+		position = game.at(position.x(), position.y() - 1)
+	}
 }
 
 
