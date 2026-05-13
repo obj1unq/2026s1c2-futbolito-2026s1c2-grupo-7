@@ -32,6 +32,7 @@ se mueve 2 posiciones a la izquierda. (o lo máximo que se pueda mover)
 			self.error("no tengo "+ objeto.nombre() +" cerca")
 		}
 	}
+	
 	method estaObjeto(objeto){return objeto.position() == self.position()}	
 }
 object pelota {
