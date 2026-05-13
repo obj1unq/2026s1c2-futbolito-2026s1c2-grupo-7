@@ -1,0 +1,17 @@
+import objetos.* 
+import pgmProgram.*
+
+describe "lionel con cambio de camiseta" {
+  test "lionel con camiseta titular" {
+    assert.throwsException({lionel.cambiarCamiseta()})
+    assert.equals("lionel-titular.png", lionel.image())
+  }
+  test "lionel con camiseta suplente"{
+    lionel.retroceder()
+    lionel.retroceder()
+    lionel.retroceder()
+    assert.that(lionel.position().x()==0)
+    lionel.cambiarCamiseta()
+    assert.equals("lionel-suplente.png", lionel.image())
+  }
+}
