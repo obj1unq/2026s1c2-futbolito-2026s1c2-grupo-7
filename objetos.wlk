@@ -29,7 +29,7 @@ se mueve 2 posiciones a la izquierda. (o lo máximo que se pueda mover)
 		}	
 	method validarPosicion(objeto){
 		if(not self.estaObjeto(objeto)){
-			self.error("no tengo "+ objeto +" cerca")
+			self.error("no tengo "+ objeto.nombre() +" cerca")
 		}
 	}
 	method estaObjeto(objeto){return objeto.position() == self.position()}	
@@ -40,6 +40,7 @@ object pelota {
 	method recibeTaquito() {
 	  self.position(game.at(0.max(self.position().x() - 2), self.position().y()))
 	}
+	method nombre(){return "la pelota"}
 }
 
 
